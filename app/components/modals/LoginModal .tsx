@@ -38,10 +38,10 @@ const LoginModal = () => {
   });
 
   //   function for handling toggling of login and sign up modals
-  const openRegister = () => {
+  const openRegister = useCallback(() => {
     loginModal.onClose();
     registerModal.onOpen();
-  };
+  }, [loginModal, registerModal]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     // update loading state
@@ -109,12 +109,12 @@ const LoginModal = () => {
 
       <div className="text-neutral-500 text-center mt-4 font-light">
         <div className="justify-center flex flex-row items-center gap-2">
-          <div>Don&apos;t have an account?</div>
+          <div>First time using Primestay?</div>
           <div
             onClick={openRegister}
             className="text-neutral-800 cursor-pointer hover:underline"
           >
-            Sign up
+            Create an account
           </div>
         </div>
       </div>

@@ -8,6 +8,7 @@ import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import { signOut } from 'next-auth/react';
 import { SafeUser } from '@/app/types';
+import useRentModal from '@/app/hooks/useRentModal';
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -17,20 +18,32 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   // set component state
   const [isOpen, setIsOpen] = useState(false);
 
-  //   bring in register and login modals
+  //   bring in rent, register and login modals
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const rentModal = useRentModal();
 
   // define callback function for toggling open state
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
 
+  //   onRent function triggers the loginModal if user is  not logged or opens the Rent Modal
+  const onRent = useCallback(() => {
+    // open login modal if user is not logged in
+    if (!currentUser) {
+      return loginModal.onOpen();
+    }
+
+    // open rent modal
+    rentModal.onOpen();
+  }, [currentUser, loginModal, rentModal]);
+
   return (
     <div className="relative">
       <div className="flex flex-row items-center gap-3">
         <div
-          onClick={() => {}}
+          onClick={onRent}
           className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer"
         >
           Your prime home
@@ -55,7 +68,10 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <MenuItem onClick={() => {}} label="My favorites" />
                 <MenuItem onClick={() => {}} label="My reservations" />
                 <MenuItem onClick={() => {}} label="My properties" />
-                <MenuItem onClick={() => {}} label="Primestay my home" />
+                <MenuItem
+                  onClick={rentModal.onOpen}
+                  label="Primestay my home"
+                />
                 <hr />
                 <MenuItem onClick={signOut} label="Logout" />
               </>

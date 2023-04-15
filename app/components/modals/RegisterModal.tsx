@@ -35,10 +35,10 @@ const RegisterModal = () => {
   });
 
   //   function for handling toggling of login and sign up modals
-  const openLogin = () => {
+  const openLogin = useCallback(() => {
     loginModal.onOpen();
     registerModal.onClose();
-  };
+  }, [loginModal, registerModal]);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     // update loading state
