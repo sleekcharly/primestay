@@ -4,13 +4,18 @@ import ClientOnly from '@/app/components/ClientOnly';
 import EmptyState from '@/app/components/EmptyState';
 import React from 'react';
 import ListingClient from './ListingClient';
+import getReservations from '@/app/actions/getReservations';
 
 interface IParams {
   listingId?: string;
 }
 
 const ListingPage = async ({ params }: { params: IParams }) => {
+  // get the lisitings
   const listing = await getListingById(params);
+
+  //   get the reservations
+  const reservations = await getReservations(params);
 
   //   get the current user
   const currentUser = await getCurrentUser();
@@ -25,7 +30,11 @@ const ListingPage = async ({ params }: { params: IParams }) => {
 
   return (
     <ClientOnly>
-      <ListingClient listing={listing} currentUser={currentUser} />
+      <ListingClient
+        listing={listing}
+        currentUser={currentUser}
+        reservations={reservations}
+      />
     </ClientOnly>
   );
 };
