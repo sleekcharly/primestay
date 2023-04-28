@@ -10,7 +10,6 @@ interface IParams {
 // add new favorite Id to mongo database
 export async function POST(request: Request, { params }: { params: IParams }) {
   const currentUser = await getCurrentUser();
-  console.log(currentUser);
 
   if (!currentUser) {
     return NextResponse.error();
@@ -51,7 +50,7 @@ export async function DELETE(
 
   const { listingId } = params;
 
-  if (!listingId || typeof listingId === 'string') {
+  if (!listingId || typeof listingId !== 'string') {
     throw new Error('Invalid ID');
   }
 
