@@ -1,37 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PrimeStay (A miniature Airbnb clone): Portfolio Project
 
-## Getting Started
+This application puts special emphasis on the next.js App router, the latest addition to the Next.js framework.
 
-First, run the development server:
+THis Airbnb clone features a seamless navigation and user experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+This app was built using the latest web develepment technologies including React, Tailwind, Prisma, MongoDB, and NextAuth.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Examples
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Try out the demo here: https://primestay.vercel.app/
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+![primestay_results_image](./images/primestay_results.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tech Stack
 
-## Learn More
+#### Backend Stack
 
-To learn more about Next.js, take a look at the following resources:
+| Type      | Tech                                                                                                                                                                         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Language  | [Typescript](https://www.typescriptlang.org/)                                                                                                                                |
+| Framework | [NextJs](https://nextjs.org/)                                                                                                                                                |
+| Hosting   | [Vercel](https://aws.amazon.com/) (https://vercel.com/)                                                                                                                      |
+| Other     | [Prisma](https://www.prisma.io/), [Google Cloud](https://cloud.google.com/), [Github](https://github.com/), [World countries](https://www.npmjs.com/package/world-countries) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Frontend Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# primestay
+| Type      | Tech                                                          |
+| --------- | ------------------------------------------------------------- |
+| Language  | [Typescript](https://www.typescriptlang.org/)                 |
+| Framework | [NextJS](https://nextjs.org/) / [React](https://reactjs.org/) |
+| Styling   | [TailwindCSS](https://tailwindcss.com/)                       |
+| Hosting   | [Vercel](https://vercel.com)                                  |
